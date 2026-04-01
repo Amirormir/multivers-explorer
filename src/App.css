@@ -202,3 +202,26 @@ dialog button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Evaluations list */
+.evaluations-list {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.evaluations-list h3 {
+  color: white;
+  margin: 0 0 10px;
+}
+
+.evaluation-item {
+  background: #0f3460;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.evaluation-item p {
+  margin: 3px 0;
+  font-size: 14px;
+}

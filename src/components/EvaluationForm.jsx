@@ -28,13 +28,15 @@ function EvaluationForm() {
     },
     validationSchema: toFormikValidationSchema(evaluationSchema),
     onSubmit: (values, { resetForm }) => {
-      dialogRef.current.showModal();
       setSubmittedData(values);
+      setEvaluations([...evaluations, values]);
+      dialogRef.current.showModal();
       resetForm();
     },
   });
 
   const [submittedData, setSubmittedData] = useState(null);
+  const [evaluations, setEvaluations] = useState([]);
 
   return (
     <section className="evaluation">
@@ -120,6 +122,18 @@ function EvaluationForm() {
           </div>
         )}
       </dialog>
+
+      {evaluations.length > 0 && (
+        <div className="evaluations-list">
+          <h3>Évaluations</h3>
+          {evaluations.map((ev, index) => (
+            <div key={index} className="evaluation-item">
+              <p><strong>{ev.nom}</strong> — {ev.note}/5</p>
+              {ev.commentaire && <p>{ev.commentaire}</p>}
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
